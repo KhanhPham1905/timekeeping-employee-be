@@ -1,0 +1,36 @@
+
+spring:
+  jpa:
+    open-in-view: on
+    properties:
+      hibernate:
+        ddl-auto: update
+        show_sql: false
+        format_sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/timekeeping?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: springstudent
+    password: springstudent
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/timekeeping?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      username: springstudent
+      password: springstudent
+#      driver-class-name: ${spring.datasource.driver-class-name}
+      auto-commit: true
+      connection-timeout: 30000
+      idle-timeout: 60000
+      max-lifetime: 180000
+      minimum-idle: 50
+      maximum-pool-size: 500
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false

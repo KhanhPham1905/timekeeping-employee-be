@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-@ToString
+//@ToString
 public class User {
 
     public static final int STATUS_INACTIVE = 0;
