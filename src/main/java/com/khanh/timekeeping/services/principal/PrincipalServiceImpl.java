@@ -1,9 +1,10 @@
-package com.khanh.timekeeping.services;
+package com.khanh.timekeeping.services.principal;
 
 import com.khanh.timekeeping.entities.Principal;
 import com.khanh.timekeeping.entities.Role;
 import com.khanh.timekeeping.entities.User;
 import com.khanh.timekeeping.repositories.RoleRepository;
+import com.khanh.timekeeping.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

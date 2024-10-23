@@ -1,7 +1,7 @@
 package com.khanh.timekeeping.filters;
 
 
-import com.khanh.timekeeping.services.PrincipalService;
+import com.khanh.timekeeping.services.principal.PrincipalService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

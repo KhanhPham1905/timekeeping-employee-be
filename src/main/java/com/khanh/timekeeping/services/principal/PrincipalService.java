@@ -1,4 +1,4 @@
-package com.khanh.timekeeping.services;
+package com.khanh.timekeeping.services.principal;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
