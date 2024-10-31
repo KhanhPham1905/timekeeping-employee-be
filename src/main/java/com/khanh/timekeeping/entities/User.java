@@ -3,6 +3,7 @@ package com.khanh.timekeeping.entities;
 
 import com.khanh.timekeeping.constants.Gender;
 import com.khanh.timekeeping.entities.enums.UserStatus;
+import com.khanh.timekeeping.requests.UserRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -62,16 +63,16 @@ public class User {
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
 
-//    public static User of(UserRequest request) {
-//        return User.builder()
-//                .fullName(request.getFullName())
-//                .gender(Gender.of(request.getGender()))
-//                .username(request.getUsername())
-//                .status(UserStatus.of(request.getStatus()))
-//                .roleId(request.getRoleId())
-//                .dailyWage(request.getDailyWage())
-//                .build();
-//    }
+    public static User of(UserRequest request) {
+        return User.builder()
+                .fullName(request.getFullName())
+                .gender(Gender.of(request.getGender()))
+                .username(request.getUsername())
+                .status(UserStatus.of(request.getStatus()))
+                .roleId(request.getRoleId())
+                .dailyWage(request.getDailyWage())
+                .build();
+    }
 
     @Override
     public String toString() {

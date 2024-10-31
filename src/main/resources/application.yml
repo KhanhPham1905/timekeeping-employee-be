@@ -11,6 +11,17 @@
 #    properties:
 #      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
 #
+
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /docs
+
+
 spring:
   jpa:
     open-in-view: on

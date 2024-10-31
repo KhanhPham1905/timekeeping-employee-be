@@ -20,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+
     public static final String[] WHITELIST_URLS = new String[]{
             "/api/health/ping",
             "/swagger-ui/**",
