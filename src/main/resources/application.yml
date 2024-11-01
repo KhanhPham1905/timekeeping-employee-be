@@ -16,6 +16,10 @@ springdoc:
     enabled: true
     path: /docs
 
+elasticsearch:
+  url: localhost:9200
+
+
 spring:
   jpa:
     open-in-view: off
@@ -86,6 +90,7 @@ spring:
   redis:
     host: ${REDIS_HOST:localhost} # Default to 'localhost' if not provided
     port: ${REDIS_PORT:6379}
+
 #  redis:
 #    sentinel:
 #      master: redis-cluster               # Tên của Redis master set

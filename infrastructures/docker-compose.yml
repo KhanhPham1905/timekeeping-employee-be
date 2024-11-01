@@ -43,13 +43,17 @@ services:
       REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS: 10000
       REDIS_MASTER_PASSWORD: springboot
   elasticsearch:
-    image: elasticsearch:8.10.2
+    image: elasticsearch:8.8.0
     container_name: elasticsearch
     ports:
       - '9200:9200'
     environment:
-      discovery.type: single-node
-      xpack.security.enabled: "false"
+      - discovery.type=single-node
+      - validate_after_inactivity=0
+      - max_open_files=65536
+      - max_content_length_in_bytes=100000000
+      - transport.host=elasticsearch
+      - xpack.security.enabled=false
   kafka-1:
     image: confluentinc/cp-kafka
     restart: always
