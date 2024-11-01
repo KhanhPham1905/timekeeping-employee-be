@@ -31,7 +31,6 @@ public class AttendanceServiceImpl implements AttendanceService {
     private final UserService userService;
     private final AttendanceRepository attendanceRepository;
     private final KafkaTopicConfig kafkaTopicConfig;
-
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Override

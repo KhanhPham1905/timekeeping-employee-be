@@ -155,4 +155,3 @@ public class UserAttendanceConsumer {
         messages.forEach(this::processCalSalary);
     }
 }
-

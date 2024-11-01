@@ -1,6 +1,7 @@
 package com.khanh.timekeeping.controllers;
 
 
+import com.github.javafaker.Faker;
 import com.khanh.timekeeping.entities.Principal;
 import com.khanh.timekeeping.requests.UserRequest;
 import com.khanh.timekeeping.requests.UserSearchRequest;
@@ -14,12 +15,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -79,5 +82,24 @@ public class UserController {
             @Valid @RequestBody UserRequest request
     ) {
         return ResponseEntity.ok(userService.update(principal, request));
+    }
+
+    @PostMapping("/generateFakeUsers")
+    @Operation(summary = "fake User")
+    public void generateFakeUsers( @AuthenticationPrincipal Principal principal) {
+        Faker faker = new Faker();
+        for (int i = 0; i < 1_000_000; i++) {
+            // Tạo UserRequest giả
+            UserRequest userRequest = new UserRequest();
+            userRequest.setFullName(faker.name().fullName());
+            userRequest.setGender(faker.number().numberBetween(0, 2)); // 0: Nữ, 1: Nam, 2: Khác
+            userRequest.setUsername(faker.name().username() + i); // Đảm bảo unique username bằng cách thêm 'i'
+            userRequest.setStatus(1); // Giả sử là "đang hoạt động"
+            userRequest.setRoleId((long) faker.number().numberBetween(1, 14)); // Giả sử có 10 roles
+            userRequest.setDailyWage(new BigDecimal(faker.number().numberBetween(1000, 10000))); // Mức lương ngẫu nhiên
+
+            // Gọi hàm create để lưu user vào cơ sở dữ liệu
+            create(principal, userRequest);
+        }
     }
 }

@@ -1,6 +1,8 @@
 package com.khanh.timekeeping.repositories;
 
+import com.khanh.timekeeping.constants.Gender;
 import com.khanh.timekeeping.entities.User;
+import com.khanh.timekeeping.entities.enums.UserStatus;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -24,7 +26,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
     @Override
     public List<User> searchTopUser(
-            Integer gender, Integer status, LocalDateTime createdAt, Pageable pageable) {
+            Gender gender, UserStatus status, LocalDateTime createdAt, Pageable pageable) {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<User> cq = cb.createQuery(User.class);
 
@@ -59,7 +61,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
     @Override
     public List<User> searchTopUserWithNativeQuery(
-            Integer gender, Integer status, LocalDateTime createdAt, Pageable pageable) {
+            Gender gender, UserStatus status, LocalDateTime createdAt, Pageable pageable) {
         Map<String, Object> params = new HashMap<>();
         StringBuilder nativeQuery =
                 new StringBuilder("""

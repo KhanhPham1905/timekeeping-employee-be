@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public enum UserStatus {
-    UNKNOWN,
     INACTIVE,
     ACTIVE,
+    UNKNOWN,
     LOCK;
 
     public static UserStatus of(Integer value) {

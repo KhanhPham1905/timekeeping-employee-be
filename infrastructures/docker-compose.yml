@@ -10,7 +10,7 @@ services:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     environment:
-      - MYSQL_ROOT_PASSWORD=ghtk@123
+      - MYSQL_ROOT_PASSWORD=springboot
     volumes:
       - ./mysql/initdb:/docker-entrypoint-initdb.d
       - ./mysql/data:/var/lib/mysql
@@ -20,7 +20,7 @@ services:
       - '6379:6379'
     environment:
       REDIS_REPLICATION_MODE: master
-      REDIS_PASSWORD: ghtk@123
+      REDIS_PASSWORD: springboot
   redis-slave:
     image: bitnami/redis:7.2.1
     depends_on:
@@ -28,8 +28,8 @@ services:
     environment:
       REDIS_REPLICATION_MODE: slave
       REDIS_MASTER_HOST: redis-master
-      REDIS_MASTER_PASSWORD: ghtk@123
-      REDIS_PASSWORD: ghtk@123
+      REDIS_MASTER_PASSWORD: springboot
+      REDIS_PASSWORD: springboot
   redis-sentinel:
     image: bitnami/redis-sentinel:7.2.1
     depends_on:
@@ -41,7 +41,7 @@ services:
       REDIS_MASTER_SET: redis-cluster
       REDIS_MASTER_HOST: localhost
       REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS: 10000
-      REDIS_MASTER_PASSWORD: ghtk@123
+      REDIS_MASTER_PASSWORD: springboot
   elasticsearch:
     image: elasticsearch:8.10.2
     container_name: elasticsearch
