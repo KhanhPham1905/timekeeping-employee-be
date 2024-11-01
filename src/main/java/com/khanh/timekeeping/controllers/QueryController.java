@@ -1,6 +1,7 @@
 package com.khanh.timekeeping.controllers;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.khanh.timekeeping.responses.DefaultResponse;
 import com.khanh.timekeeping.services.query.QueryService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,9 +20,9 @@ public class QueryController {
     private final QueryService queryService;
 
     @GetMapping
-    public ResponseEntity<DefaultResponse<Boolean>> getQueries() {
+    public ResponseEntity<DefaultResponse<Boolean>> getQueries() throws JsonProcessingException  {
         queryService.showQuery();
-//    queryService.fetchAllUser();
+//        queryService.fetchAllUser();
         return ResponseEntity.ok(DefaultResponse.success(Boolean.TRUE));
     }
 }

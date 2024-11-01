@@ -73,6 +73,6 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public void calSalary(Long userId) {
         log.info("Đang tính lương cho nhân viên {}", userId);
-//    setupJobRecalculateSalary(1L);
+    setupJobRecalculateSalary(1L);
     }
 }
