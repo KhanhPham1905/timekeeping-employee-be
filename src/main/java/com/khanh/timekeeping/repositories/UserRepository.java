@@ -80,4 +80,9 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
 
     Optional<User> findFirstByUsername(String username);
 
+    Optional<User> findByFacebookAccountId(String facebookAccountId);
+    Optional<User> findByGoogleAccountId(String googleAccountId);
+    Optional<User> findByPhoneNumber(String phoneNumber);
+    Optional<User> findByEmail(String email);
+    boolean existsByUsername(String email);
 }

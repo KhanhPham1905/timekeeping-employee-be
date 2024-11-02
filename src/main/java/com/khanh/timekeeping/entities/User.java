@@ -63,6 +63,22 @@ public class User {
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    //ALTER TABLE users ADD COLUMN profile_image VARCHAR(255) DEFAULT '';
+    @Column(name = "profile_image")
+    private String profileImage;
+
+    @Column(name = "facebook_account_id")
+    private String facebookAccountId;
+
+    @Column(name = "google_account_id")
+    private String googleAccountId;
+
+    @Column(name = "password", length = 200, nullable = false)
+    private String password;
+
     public static User of(UserRequest request) {
         return User.builder()
                 .fullName(request.getFullName())

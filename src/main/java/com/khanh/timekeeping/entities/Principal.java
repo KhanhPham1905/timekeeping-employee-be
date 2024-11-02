@@ -6,17 +6,24 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
-public final class Principal implements UserDetails {
+public final class Principal implements UserDetails, OAuth2User {
 
     private final User user;
     private final Collection<Role> roles;
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return Map.of();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -60,6 +67,11 @@ public final class Principal implements UserDetails {
 
     public Long getUserId() {
         return user.getId();
+    }
+
+    @Override
+    public String getName() {
+        return "";
     }
 }
 
