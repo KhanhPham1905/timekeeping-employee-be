@@ -31,11 +31,11 @@ public class JWTRequestFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain chain
     ) throws ServletException, IOException {
-//        String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
-//        if (!StringUtils.hasText(authorization) || !authorization.startsWith("Bearer ")) {
-//            chain.doFilter(request, response);
-//            return;
-//        }
+        String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
+        if (!StringUtils.hasText(authorization) || !authorization.startsWith("Bearer ")) {
+            chain.doFilter(request, response);
+            return;
+        }
         // TODO: Do Something to extract info
         String username = "khanhquocphamdev@gmail.com";
         UserDetails userDetails = principalService.loadUserByUsername(username);

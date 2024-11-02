@@ -96,8 +96,8 @@ spring:
       client:
         registration:
           google:
-            client-id: 634024087696-fkj2i38lh8doloo12vokb70fisn0qif0.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${GOOGLE_ID}
+            client-secret: ${GOOGLE_KEY}
             redirect-uri: "${GOOGLE_REDIRECT_URI:http://localhost:4300/auth/google/callback}" #sau khi user đăng nhập google thành công sẽ tự redirect đến trang này kèm code(của gooogle)
             user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
             #auth-uri: "https://www.facebook.com/v3.2/dialog/oauth"
@@ -105,8 +105,8 @@ spring:
               opaque-token:
                 introspection-uri: "https://googleapis.com"  # Đảm bảo URI này chính xác
           facebook:
-            client-id: 1007654770988152
-            client-secret: 5adb1d315754ac7e7e26b09d4c8b8b17
+            client-id: ${FB_ID}
+            client-secret: {FB_KEY}
             redirect-uri: "${GOOGLE_REDIRECT_URI:http://localhost:4300/auth/facebook/callback}" #sau khi user đăng nhập google thành công sẽ tự redirect đến trang này kèm code(của fb)
             auth-uri: https://www.facebook.com/v21.0/dialog/oauth
             token-uri: https://graph.facebook.com/oauth/access_token
@@ -122,9 +122,9 @@ spring:
 #    password: springboot
 
 jwt:
-  expiration: 2592000 #30 days = 30 * 24 * 60 * 60
-  expiration-refresh-token: 5184000 #60 days = 60 * 24 * 60 * 60
-  secretKey: TaqlmGv1iEDMRiFp/pHuID1+T84IABfuA0xXh4GhiUI=
+  expiration: ${JWT_EX} #30 days = 30 * 24 * 60 * 60
+  expiration-refresh-token: ${JWT_FR} #60 days = 60 * 24 * 60 * 60
+  secretKey: ${JWT_KEY}
 
 
 logging:
