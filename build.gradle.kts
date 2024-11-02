@@ -49,7 +49,15 @@ dependencies {
 	testImplementation("org.springframework.security:spring-security-test")
 	implementation("org.springframework.boot:spring-boot-starter-aop")
 	implementation("com.github.javafaker:javafaker:1.0.2")
-
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+	implementation("org.springframework.security:spring-security-oauth2-client")
+	implementation("com.google.api-client:google-api-client:2.6.0")
+	implementation("com.google.oauth-client:google-oauth-client-jetty:1.36.0")
+	implementation("com.google.apis:google-api-services-people:v1-rev537-1.25.0")
+	implementation("io.jsonwebtoken:jjwt-api:0.12.5")
+	implementation("io.jsonwebtoken:jjwt-impl:0.12.5")
+	implementation("io.jsonwebtoken:jjwt-jackson:0.12.5")
 }
 
 dependencyManagement {

@@ -22,5 +22,5 @@ import static org.hibernate.jpa.HibernateHints.HINT_CACHEABLE;
 import static org.hibernate.jpa.HibernateHints.HINT_FETCH_SIZE;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
-
+    Optional<Role> findByCode(String name);
 }
